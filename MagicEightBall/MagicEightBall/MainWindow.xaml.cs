@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MagicEightBall
 {
@@ -27,7 +17,14 @@ namespace MagicEightBall
 
         private void CommandButton_OnClick(object sender, RoutedEventArgs e)
         {
+            // Artificial delay.
+            Cursor = Cursors.Wait;
+            Thread.Sleep(TimeSpan.FromSeconds(1));
 
+            var answer = AnswerGenerator.GenerateAnswer();
+            AnswerTextBox.Text = answer;
+
+            Cursor = null;
         }
     }
 }
