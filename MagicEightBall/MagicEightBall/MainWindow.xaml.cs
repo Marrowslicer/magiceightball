@@ -24,5 +24,10 @@ namespace MagicEightBall
         {
             InitializeComponent();
         }
+
+        private void CommandButton_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
